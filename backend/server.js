@@ -71,8 +71,12 @@ app.get('/', (req, res) => {
   res.send('Bajaj Full Stack Challenge - Hierarchical Graph Processor API is running.');
 });
 
-// Start Server
+// Start Server in local environment (only if not running on Vercel serverless)
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+export default app;
