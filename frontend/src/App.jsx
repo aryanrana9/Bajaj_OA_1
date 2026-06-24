@@ -51,7 +51,7 @@ function TreeView({ rootLabel, treeData }) {
 }
 
 export default function App() {
-  const [apiUrl, setApiUrl] = useState('http://localhost:5000/bfhl');
+  const [apiUrl, setApiUrl] = useState(import.meta.env.VITE_API_URL || 'http://localhost:5000/bfhl');
   const [inputData, setInputData] = useState(
     JSON.stringify({
       data: [
